@@ -1,0 +1,32 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <input type="range" id="r" min="0" max="255" value="0">
+    <input type="range" id="g" min="0" max="255" value="0">
+    <input type="range" id="b" min="0" max="255" value="0">
+    <p id="output"></p>
+    <canvas height="400" width="400" style="border: 1px solid rgb(0, 0, 0);"></canvas>
+    <script>
+    	var canvas = document.querySelector("canvas");
+		var ctx = canvas.getContext("2d");
+
+		function rgb(r, g, b){
+      		return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+    	}
+
+		setInterval(function(){
+			var rVal = document.getElementById("r").value;
+			var gVal = document.getElementById("g").value;
+			var bVal = document.getElementById("b").value;
+  
+			document.getElementById("output").textContent = `r: ${rVal} g: ${gVal} b: ${bVal}`
+
+			ctx.fillStyle = rgb(rVal, gVal, bVal);
+			ctx.fillRect(0, 0, 400, 400);
+
+  			//console.log(`r: ${r}, g: ${g}, b: ${b}`);
+		}, 33);
+    </script>
+  </body>
+</html>
