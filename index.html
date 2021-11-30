@@ -16,9 +16,9 @@
     	}
 
 		setInterval(function(){
-			var rVal = document.getElementById("r").value;
-			var gVal = document.getElementById("g").value;
-			var bVal = document.getElementById("b").value;
+			var rVal = document.getElementById("r").valueAsNumber;
+			var gVal = document.getElementById("g").valueAsNumber;
+			var bVal = document.getElementById("b").valueAsNumber;
   
 			document.getElementById("output").textContent = `r: ${rVal} g: ${gVal} b: ${bVal}`
 
